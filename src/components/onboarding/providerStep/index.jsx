@@ -42,7 +42,7 @@ function ProviderStep() {
       <Row className="justify-content-center py-3">
         <Col xs="12" sm="8" className="text-center">
           <p className="text-white">
-            To interact with Snowflake and the Hydro dApp store you must install MetaMask (a wallet for your browser) and have a balance of Ethereum in it. Once you install it this message will go away and you can proceed.
+            To interact with Snowflake and the Hydro Web-Wallet you must install MetaMask and have a balance of Ethereum in it. Once you install it this message will go away and you can proceed.
           </p>
         </Col>
       </Row>

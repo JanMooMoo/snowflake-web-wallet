@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -16,7 +16,7 @@ import Sidebar from '../sidebar';
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
   <div>
     <Header />
     <Container fluid className="app">
@@ -32,7 +32,7 @@ function App() {
       </Row>
     </Container>
   </div>
-</BrowserRouter>
+</Router>
   );
 }
 
