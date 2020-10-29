@@ -14,6 +14,7 @@
   border-radius: 0.25rem;
   height: 250px;
   margin-right: 0px!important;
+  margin-left: 0px !important;
 }
 
 .identity__title {
@@ -55,4 +56,8 @@
 
 .identity__connected-wallet-title {
   font-size: 19px;
+}
+
+.linked-address-col{
+  padding-top: 10px;
 }

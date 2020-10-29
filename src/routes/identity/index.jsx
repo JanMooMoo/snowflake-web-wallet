@@ -38,7 +38,7 @@ const Identity = () => {
     <div>
 
       <Row className="py-3 justify-content-center align-items-center fadeit">
-        <Col sm="12" md="12" lg="12" xl="5">
+        <Col sm="12" md="12" lg="12" xl="6">
           <Card className="identity">
             <Row className="p-3 justify-content-center align-items-center ">
               <Col xs="10">
@@ -70,7 +70,7 @@ const Identity = () => {
                   {`Linked Wallet(s): ${associatedAddresses.length}`}
                 </p>
               </Col>
-              <Col>
+              <Col className="linked-address-col">
               {associatedAddresses.map(address => (
                 <LinkedAddress
                   key={address}
@@ -83,7 +83,7 @@ const Identity = () => {
           </Card>
         </Col>
 
-        <Col sm="12" md="12" lg="12" xl="5">
+        <Col sm="12" md="12" lg="12" xl="6">
           <LinkAddressCard />
         </Col>
       </Row>

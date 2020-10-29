@@ -27,7 +27,9 @@ function Wallet() {
 
       </Row>
       <Row className="identity__row fadeit">
+      <Col sm="12" md="12" lg="12" xl="12">
         <Identity/>
+        </Col>
       </Row>
       <Row>
         <Col className="nopadding">
