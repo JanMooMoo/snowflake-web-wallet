@@ -6,7 +6,8 @@
 }
 
 .withdraw__from {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: transparent;
+  background-color: #03194a;
   border-width: 1px;
   border-radius: 5px;
   border-style: solid;
@@ -23,7 +24,7 @@
 
 .withdraw__input {
   color: white;
-  background-color: #2452fe;
+  background-color: #03194a;
   border: 0;
   padding: 0;
   font-size: 1.2rem;
@@ -35,7 +36,7 @@
 }
 
 .withdraw__input:focus {
-  background-color: #2452fe;
+  background-color: #03194a;
   color: white;
 }
 
@@ -56,7 +57,7 @@
 }
 
 .withdraw__to {
-  background-color: #3a64fe;
+  background-color: #03194a;
   border-radius: 5px;
   padding-top: 8px;
   padding-bottom: 10px;
