@@ -46,11 +46,6 @@ const Identity = () => {
                   Your Snowflake (EIN)
                 </p>
               </Col>
-              <Col xs="2" className="text-right">
-                <HelpButton
-                  content={tooltips.identityHelp}
-                />
-              </Col>
             </Row>
             <Row className="justify-content-center align-items-center pb-4">
               <Col xs="6">
