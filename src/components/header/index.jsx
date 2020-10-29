@@ -51,6 +51,7 @@ class Header extends React.Component {
           <NavbarBrand tag={RouterNavLink} exact to="/">
           <h2 className="header__title">
               <img src={headerLogo} alt="Powered by Hydro" className="header__logo" />
+
             </h2>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />

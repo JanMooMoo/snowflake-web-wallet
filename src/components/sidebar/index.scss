@@ -1,20 +1,21 @@
 /* @define sidebar */
 
 .sidebar {
-  background: #03194a!important;
+  background: transparent!important;
   padding-left: 0;
   padding-right: 0;
   position: absolute;
-  top: 0;
-  bottom: -60px;
-  width: 80%;
-  padding-top: 30px;
+  height: 15px;
+  width: 100%;
+  padding-bottom: 10rem!important;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .sidebar__link {
   color: #e8e8e8;
   font-size: 17px;
-  padding: 10px 0 10px 30px;
+  padding-top: 1rem;
   margin-bottom: 10px;
   margin-right: 15px;
 }
@@ -35,22 +36,21 @@
 }
 
 .sidebar__link--active {
-  background-color: $snow-classic-blue;
+  background-color: transparent;
   color: $snow-white;
   list-style-type: none;
   padding: 10px 0 10px 30px;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+
   margin-bottom: 10px;
 }
 
 .sidebar__link--active .sidebar__badge {
-  background-color: #000828;
+  background-color: transparent;
 }
 
 .sidebar__link--active:hover {
   color: $snow-white;
-  background-color: $snow-classic-blue;
+  background-color: transparent;
 }
 
 .sidebar__icon {
@@ -59,24 +59,23 @@
 }
 
 .sidebar__badge {
-  background-color: #000828;
+  background-color: transparent;
   color: #fff;
   font-size: 14px;
   font-weight: normal;
-  float: right;
-  padding: 6px 10px 6px 10px;
-  margin-top: -2px;
-  margin-right: 8px;
 }
 
 .sidebar__hydro-drop {
-  width: 15px;
-  margin-right: -5px;
-  margin-top: -2px;
-  margin-left: 5px;
+  width: 30px;
 }
 
 .sidebar .onboardingButton {
   margin-left: 30px;
   margin-bottom: 15px;
+}
+
+.new-sidebar{
+  padding-bottom: 4rem;
+  margin-top: -4rem;
+  z-index: 100001;
 }

@@ -36,29 +36,15 @@ const Identity = () => {
 
   return (
     <div>
-      <Row className="pb-3">
-        <Col>
-          <h3 className="title">
-            Manage your Identity
-          </h3>
-          <h4 className="subtitle">
-            Add/Remove Ethereum Wallet Addresses to your EIN
-          </h4>
-        </Col>
-      </Row>
+
       <Row className="py-3 justify-content-center align-items-center fadeit">
-        <Col sm="12" md="12" lg="12" xl="5">
+        <Col sm="12" md="12" lg="12" xl="6">
           <Card className="identity">
             <Row className="p-3 justify-content-center align-items-center ">
               <Col xs="10">
                 <p className="identity__title">
                   Your Snowflake (EIN)
                 </p>
-              </Col>
-              <Col xs="2" className="text-right">
-                <HelpButton
-                  content={tooltips.identityHelp}
-                />
               </Col>
             </Row>
             <Row className="justify-content-center align-items-center pb-4">
@@ -84,36 +70,24 @@ const Identity = () => {
                   {`Linked Wallet(s): ${associatedAddresses.length}`}
                 </p>
               </Col>
+              <Col className="linked-address-col">
+              {associatedAddresses.map(address => (
+                <LinkedAddress
+                  key={address}
+                  address={address}
+                  removable={associatedAddresses.length > 1}
+                />
+              ))}
+              </Col>
             </Row>
           </Card>
         </Col>
-        <Col sm="12" md="12" lg="12" xl="1" className="text-center">
-          <IoMdLink
-            className="identity__link"
-          />
-        </Col>
-        <Col sm="12" md="12" lg="12" xl="5">
+
+        <Col sm="12" md="12" lg="12" xl="6">
           <LinkAddressCard />
         </Col>
       </Row>
-      <Row className="py-3">
-        <Col>
-          <h3 className="identity__connected-wallet-title">
-            Ethereum Wallets Connected To Your Snowflake (EIN)
-          </h3>
-        </Col>
-      </Row>
-      <Row>
-        <Col sm="12" md="12" lg="12" xl="12">
-          {associatedAddresses.map(address => (
-            <LinkedAddress
-              key={address}
-              address={address}
-              removable={associatedAddresses.length > 1}
-            />
-          ))}
-        </Col>
-      </Row>
+
     </div>
   );
 };

@@ -62,11 +62,7 @@ function LinkAddressCard() {
               Link an Ethereum Wallet
             </p>
           </Col>
-          <Col xs="2" className="text-right">
-            <HelpButton
-              content={tooltips.ethWalletHelp}
-            />
-          </Col>
+
         </Row>
         <Row className="justify-content-center align-items-center">
           <Col sm="2">
@@ -110,11 +106,7 @@ function LinkAddressCard() {
               Link an Ethereum Wallet
             </p>
           </Col>
-          <Col className="text-right">
-            <HelpButton
-              content={tooltips.getHydroHelp}
-            />
-          </Col>
+
         </Row>
         <Row className="justify-content-center align-items-center">
           <Col sm="2">
@@ -156,11 +148,6 @@ function LinkAddressCard() {
           <p className="link__title">
             Link an Ethereum Wallet
           </p>
-        </Col>
-        <Col xs="2" className="text-right">
-          <HelpButton
-            content={tooltips.getHydroHelp}
-          />
         </Col>
       </Row>
       <Row className="justify-content-center align-items-center">

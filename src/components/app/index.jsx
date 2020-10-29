@@ -11,33 +11,33 @@ import {
 } from 'reactstrap';
 
 import Header from '../header';
-import Sidebar from '../sidebar';
 import Wallet from '../../routes/wallet';
+import Sidebar from '../sidebar';
 import Identity from '../../routes/identity';
 
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Header />
-        <Container fluid className="app">
-          <Row>
-            <Col xs="12" sm="12" md="4" lg="4" xl="3" className="nopadding">
-              <Sidebar />
-            </Col>
-            <Col xs="12" sm="12" md="8" lg="8" xl="9" className="app__content">
-              <Switch>
+  <div>
+    <Header />
+    <Container fluid className="app">
 
-                <Route exact path="/wallet" component={Wallet} />
-                <Route exact path="/identity" component={Identity} />
+      <Row>
 
-              </Switch>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    </BrowserRouter>
+        <Col xs="12" sm="12" md="12" lg="12" xl="12" className="app__content">
+        <Col className="new-sidebar">
+        <Sidebar />
+        </Col>
+          <Switch>
+            <Route exact path="/wallet" component={Wallet} />
+            <Route exact path="/identity" component={Identity} />
+          </Switch>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+</BrowserRouter>
   );
 }
 
