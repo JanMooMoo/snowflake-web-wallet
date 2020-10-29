@@ -11,17 +11,8 @@ import {
   Col,
   Card,
 } from 'reactstrap';
-import {
-  IoMdLink,
-} from 'react-icons/io';
-
 import SnowflakeContext from '../../contexts/snowflakeContext';
-
 import Identicon from '../../components/identicon';
-import HelpButton from '../../components/helpButton';
-
-import tooltips from '../../common/config/tooltips.json';
-
 import LinkedAddress from './components/linkedAddress';
 import LinkAddressCard from './components/linkAddressCard';
 

@@ -16,16 +16,11 @@ import {
 import {
   NavLink as RouterNavLink,
 } from 'react-router-dom';
-import numeral from 'numeral';
 
 import Onboarding from '../onboarding';
 import whiteHydroDrop from '../../common/img/hydro_white_drop.png';
 
 import SnowflakeContext from '../../contexts/snowflakeContext';
-
-import {
-  fromWei,
-} from '../../services/format';
 
 import {
   network,
@@ -38,7 +33,6 @@ function Sidebar() {
 
   const {
     ein,
-    snowflakeBalance,
     networkId,
     hasProvider,
   } = snowflakeContext;

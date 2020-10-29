@@ -21,9 +21,6 @@ import {
 
 import SignatureButton from '../../../../components/signatureButton';
 import TransactionButton from '../../../../components/transactionButton';
-import HelpButton from '../../../../components/helpButton';
-
-import tooltips from '../../../../common/config/tooltips.json';
 
 import {
   createSignedMessageToLinkAddress,
