@@ -28,6 +28,7 @@ function App() {
         <Sidebar />
           <hr/>
           <Switch>
+          <Route exact path="/" component={Staking} />
             <Route exact path="/wallet" component={Wallet} />
             <Route exact path="/staking" component={Staking} />
             <Route exact path="/overview" component={Dashboard} />
