@@ -113,15 +113,15 @@ render(){
       <Row className="wallet__row fadeit">
 
         <Col sm="12" md="12" lg="4" xl="4" className="mt-2">
-        <section class="Card_main_cap"><article class="Summary_article__1GCPa"><div><h5 class="Summary_title__3bb6K"><div class="Tooltip_flex__1ksLY">Hydro Price<div class="Tooltip_icon__3KlgE"></div></div></h5><section class="Summary_content__3WBZI"><h2>$ {this.state.price}</h2></section></div></article></section>
+        <section class="Card_main_cap"><h2>Hydro Price</h2><strong><p>$ {this.state.price}</p></strong></section>
         </Col>
 
         <Col sm="12" md="12" lg="4" xl="4" className="mt-2">
-        <section class="Card_main_cap"><article class="Summary_article__1GCPa"><div><h5 class="Summary_title__3bb6K"><div class="Tooltip_flex__1ksLY">Total Supply<div class="Tooltip_icon__3KlgE"></div></div></h5><section class="Summary_content__3WBZI"><h2>11.1b</h2></section></div></article></section>
+        <section class="Card_main_cap"><h2>Total Supply</h2><strong><p>11.1b</p></strong></section>
         </Col>
         
         <Col sm="12" md="12" lg="4" xl="4" className="mt-2">
-        <section class="Card_main_cap"><article class="Summary_article__1GCPa"><div><h5 class="Summary_title__3bb6K"><div class="Tooltip_flex__1ksLY">Total Staking<div class="Tooltip_icon__3KlgE"></div></div></h5><section class="Summary_content__3WBZI"><h2>{this.state.totalStaking}</h2></section></div></article></section>
+        <section class="Card_main_cap"><h2>Total Staking</h2><strong><p>{this.state.totalStaking}</p></strong></section>
         </Col>
 
       </Row>

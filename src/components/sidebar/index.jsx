@@ -38,14 +38,26 @@ function Sidebar() {
   } = snowflakeContext;
 
   function displayButton() {
-    if (ein) {
+
+    if (hasProvider && networkId !== network) {
+      return (
+        <div className="onboardingButton">
+          <Button color="warning">
+            Wrong network
+          </Button>
+        </div>
+      );
+    }
+    
+    
       return (
         <div>
           <NavItem>
             
-            <div className="routes">
-            <NavLink tag={RouterNavLink} exact to="/wallet">
-           
+          <div className="routes">
+
+          <NavLink tag={RouterNavLink} exact to="/wallet">
+
           <h2 className="header__title ">
           <Badge className="sidebar__badge" color="secondary" pill>
               <i class="fas fa-wallet"></i>
@@ -78,19 +90,11 @@ function Sidebar() {
           </NavItem>
         </div>
       );
-    }
+ 
 
-    if (hasProvider && networkId !== network) {
-      return (
-        <div className="onboardingButton">
-          <Button color="warning">
-            Wrong network
-          </Button>
-        </div>
-      );
-    }
+    
 
-    return (
+    /*return (
       <div className="onboardingButton">
         <Onboarding
           step={hasProvider ? 'hydroId' : 'provider'}
@@ -104,7 +108,8 @@ function Sidebar() {
         </Button>
       </div>
     );
-  }
+  }*/
+}
 
   return (
     <div className="sidebar">

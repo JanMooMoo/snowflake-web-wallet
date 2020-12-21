@@ -56,7 +56,9 @@ function getAccountEin(lib, address) {
      
       return ein;
     })
-    .catch(err => err);
+    .catch(err => {
+      return ''
+    });
 }
 
 function getIdentity(lib, account) {

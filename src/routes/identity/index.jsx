@@ -4,26 +4,35 @@
  */
 
 import React, {
-  useContext,
+  useContext,useState
 } from 'react';
 import {
   Row,
   Col,
   Card,
+  Button
 } from 'reactstrap';
 import SnowflakeContext from '../../contexts/snowflakeContext';
 import Identicon from '../../components/identicon';
+import Onboarding from '../../components/onboarding';
 import LinkedAddress from './components/linkedAddress';
 import LinkAddressCard from './components/linkAddressCard';
 
+
+
 const Identity = () => {
   const user = useContext(SnowflakeContext);
+  
 
   const {
+    hasProvider,
     ein,
+    networkId,
     hydroId,
     associatedAddresses,
   } = user;
+
+const [isModalOpen, toggleModal] = useState(false);
 
   return (
     <div>
@@ -38,6 +47,7 @@ const Identity = () => {
                 </p>
               </Col>
             </Row>
+            
             <Row className="justify-content-center align-items-center pb-4">
               <Col xs="6">
                 <p className="identity__user-image">
@@ -45,6 +55,7 @@ const Identity = () => {
                     <Identicon seed={ein} />
                   )}
                 </p>
+                
               </Col>
               <Col xs="6">
                 <p className="identity__hydro-id">
@@ -71,6 +82,22 @@ const Identity = () => {
               ))}
               </Col>
             </Row>
+
+            <Onboarding
+              hasProvider={hasProvider}
+              networkId={networkId}
+              isOpen={isModalOpen}
+              toggle={() => toggleModal(!isModalOpen)}
+            />
+
+            {ein === null && <Row className="py-3 justify-content-center align-items-center fadeit">
+            <div className="onboardingButton">
+              <Button color="primary" onClick={() => toggleModal(!isModalOpen)}>
+              Create Account
+              </Button>
+            </div>
+            </Row>}
+
           </Card>
         </Col>
 
@@ -78,6 +105,7 @@ const Identity = () => {
           <LinkAddressCard />
         </Col>
       </Row>
+      
 
     </div>
   );
