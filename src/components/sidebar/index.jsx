@@ -76,13 +76,13 @@ function Sidebar() {
           </h2>
           </NavLink>
 
-          <NavLink tag={RouterNavLink} exact to="/ein">
+          <NavLink tag={RouterNavLink} exact to="/overview">
          
           <h2 className="header__title">
           <Badge className="sidebar__badge" color="secondary" pill>
                 <img src={whiteHydroDrop} alt="Hydro Drop" className="sidebar__hydro-drop" />
               </Badge>
-              Identity
+              Overview
           </h2>
           </NavLink>
           </div>

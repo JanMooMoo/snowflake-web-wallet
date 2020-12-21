@@ -1,0 +1,138 @@
+
+
+.Card_card__39xAa {
+    background: #172240;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    
+}
+.CardHeader_default__1T8G2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.CardHeader_header__1TETX {
+    border-bottom: 1px solid hsla(0,0%,100%,.08);
+    box-shadow: inset 0 -1px rgba(0,0,0,.2);
+    padding: 20px 25px;
+    
+}
+
+.CardHeader_default__1T8G2 .CardHeader_wrapper__1N6gS {
+    flex: 1 1;
+    margin-right: 20px;
+    width:300px;
+}
+
+@media (max-width: 991.98px){
+.Dl_horizontal__1jYvp {
+    flex-wrap: wrap;
+}
+}
+
+.LoadingTitle_wrapper__3my0A {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Dl_horizontal__1jYvp {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:12px;
+}
+
+.Dl_dt__3zoU3 {
+    color: #6d738c;
+    text-transform: capitalize;
+    font-size:14px;
+}
+
+.Dl_dd__3OEmm {
+    color: #fff;
+    font-size:14px;
+}
+
+
+
+///@at-root
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.table-wrapper{
+    margin-top:20px;
+    padding-top:5px;
+    background: transparent;
+    font-size:0.9rem;
+    border-top: none;
+    text-align:center;
+    overflow:hidden;
+    width:100%;
+    color:rgb(216, 216, 216);
+    margin-left:5px;
+  }
+  
+  .table-size {
+    text-align:left;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width:100%;
+    border-top:1px solid rgba(248, 248, 248, 0.178); 
+    color:rgb(173, 173, 173);
+  }
+  
+  .list-header{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+  }
+  
+  .table-size th{
+    font-size:12px;
+    font-size: 16px;
+    padding-top:5px; 
+    padding-bottom:5px; 
+    border-bottom:1px solid rgba(248, 248, 248, 0.178); 
+    
+
+  }
+  
+  .table-size tr{
+    padding-top:5px; 
+    padding-bottom:5px; 
+    font-size: 25px;
+    color:white;
+  }
+
+  thead th{
+    padding-top:5px; 
+    padding-bottom:5px; 
+    font-size: 25px;
+    color:#6d738c;
+  }
+  
+  .table_button{
+      border-radius:15px;
+      min-width:100px;
+      font-size:15px;
+      font-weight:600;
+      color:white;
+      background: #00396e;
+      border:none;
+      
+  }
+
+
+
+
+  

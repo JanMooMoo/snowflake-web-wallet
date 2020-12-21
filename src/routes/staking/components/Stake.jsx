@@ -35,6 +35,7 @@ import {
   stakeDuration,
 } from '../../../services/utilities';
 import TransactButton from './buttons/TransactButton';
+import './index.scss'
 
 
 
@@ -60,31 +61,14 @@ function Stake(props) {
         const req = await getBalanceUsd(fromWei(snowflakeBalance.toString()));
         setUsdBalance(req.toString().substring(0, 5));
       }
-      console.log('asas',usdBalance)
     }
 
     getUsdPrice();
   }, [snowflakeBalance]);
  
-  /*<Row className="justify-content-center py-3">
-  <Col className="text-center">
-    <p>
-      <Input
-        type="number"
-        onChange={e => setAmountToStake(e.target.value)}
-        placeholder="0.000000"
-        className="buy-uniswap__amount"
-      />
-      {' '}
-      
-    </p>
-    
-
-  </Col>
-</Row>*/
 
   let funds = 'sufficient-funds'
-  if(formatAmount(fromWei(hydroBalance.toString())) < parseInt(amountToStake) ){
+  if(formatAmount(fromWei(props.normalBalance)) < parseInt(amountToStake) ){
     funds = 'insufficient-funds'
   }
 
@@ -94,7 +78,7 @@ function Stake(props) {
 
       <p className="available-staking mb-0 col-sm-6 col-xs-5 col-lg-3" >
           <img src={hydro_blue_drop} className="hydro-staking-logo"/>
-            {formatAmount(fromWei(hydroBalance.toString()))}
+            {formatAmount(fromWei(props.normalBalance))}
             </p>
 
         <Col xs="1" sm="2" lg="7" xl="8" className="text-right ml-5">
@@ -121,19 +105,20 @@ function Stake(props) {
       <div class="FormGroup_group__1Nj2I FormGroup_component__1Xdv1 py-4">
         <div class="FormGroup_border__1leMw">
           <header class="FormGroup_header__3pzEu">
-            <section class="FormGroup_label__3QiUB">
+            <div class="FormGroup_label__3QiUB">
               <label for="value">Amount</label>
-              </section>
-              <section class="FormGroup_help__36Rs-">Balance: <strong>{formatAmount(fromWei(hydroBalance.toString()))}</strong></section>
+              </div>
+              <div class="FormGroup_help__36Rs-">Balance: <strong>{formatAmount(fromWei(props.normalBalance))}</strong></div>
               </header>
-              <section class=""><section class="FormGroup_wrapper__2JKVL">
 
-                <section class="FormGroup_field__1mGpF">
+              <div class=""><div class="FormGroup_wrapper__2JKVL">
+
+                <div class="FormGroup_field__1mGpF">
                 <input id="value" name="value" autocomplete="off" type="number" step="0.000001" value={amountToStake} placeholder="0.000000" onChange={e => setAmountToStake(e.target.value)} />
-                </section>
-                <section class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(hydroBalance.toString())))}>Max</section>
-                </section>
-              </section>
+                </div>
+                <div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>
+                </div>
+              </div>
               
               </div>
             </div>

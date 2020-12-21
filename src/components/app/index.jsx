@@ -13,6 +13,7 @@ import {
 import Header from '../header';
 import Wallet from '../../routes/wallet';
 import Staking from '../../routes/staking';
+import Dashboard from '../../routes/dashboard';
 import Sidebar from '../sidebar';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Switch>
             <Route exact path="/wallet" component={Wallet} />
             <Route exact path="/staking" component={Staking} />
+            <Route exact path="/overview" component={Dashboard} />
           </Switch>
         </Col>
       </Row>

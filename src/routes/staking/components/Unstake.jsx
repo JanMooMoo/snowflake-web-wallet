@@ -94,24 +94,24 @@ import React, {
         <div class="FormGroup_group__1Nj2I FormGroup_component__1Xdv1 py-4">
           <div class="FormGroup_border__1leMw">
             <header class="FormGroup_header__3pzEu">
-              <section class="FormGroup_label__3QiUB">
+              <div class="FormGroup_label__3QiUB">
                 <label for="value">Amount</label>
-                </section>
-                <section class="FormGroup_help__36Rs-">Balance: <strong>{props.stakingBalance}</strong></section>
+                </div>
+                <div class="FormGroup_help__36Rs-">Balance: <strong>{props.stakingBalance}</strong></div>
                 </header>
-                <section class=""><section class="FormGroup_wrapper__2JKVL">
+                <div class=""><div class="FormGroup_wrapper__2JKVL">
   
-                  <section class="FormGroup_field__1mGpF">
+                  <div class="FormGroup_field__1mGpF">
                   <input id="value" name="value" autocomplete="off" type="number" step="0.000001" value={amountToUnstake} placeholder="0.000000" onChange={e => setAmountToUnstake(e.target.value)} />
-                  </section>
-                  <section class="FormGroup_unit__3Lev9" onClick={e => setAmountToUnstake(props.stakingBalance)}>Max</section>
-                  </section>
-                </section>
+                  </div>
+                  <div class="FormGroup_unit__3Lev9" onClick={e => setAmountToUnstake(props.stakingBalance)}>Max</div>
+                  </div>
+                </div>
                 
                 </div>
               </div>
 
-          <section className={funds}><strong>Insufficient Hydro Balance</strong></section>
+          <section className={funds}><strong>Insufficient Stake Balance</strong></section>
 
         <Row className="justify-content-center mt-3">
           <Col className="text-center">

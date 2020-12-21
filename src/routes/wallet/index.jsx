@@ -9,13 +9,12 @@ import {
   Col,
 } from 'reactstrap';
 
+
 import Transactions from './components/transactions';
 import DepositWithdraw from './components/depositWithdraw';
 import BuyWithUniswap from './components/buyWithUniswap';
 import Identity from '../../routes/identity';
 import SnowflakeContext from '../../contexts/snowflakeContext';
-
-
 
 
 

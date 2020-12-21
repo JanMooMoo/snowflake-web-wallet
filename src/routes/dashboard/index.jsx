@@ -4,24 +4,29 @@
 
 import React, { Component } from 'react';
 
+
 import {
   Container,
   Row,
   Col,
 } from 'reactstrap';
-import Stake from './components/Stake';
-import Unstake from './components/Unstake';
+
 import Web3 from 'web3';
-import Staking_ABI from './contract/staking';
-import hydro from './contract/hydro';
+import Staking_ABI from '../staking/contract/staking';
+import hydro from '../staking/contract/hydro';
+import AccountDetails from './components/AccountDetails';
 import {
   getBalanceUsd,
 } from '../../services/hydroPrice';
 
+import {
+    fromWei,
+    formatAmount,
+  } from '../../services/format';
 
 
-export default class Staking extends Component {
 
+export default class Dashboard extends Component {
 
   async loadBlockchain(){
     this.setState({loading:true})
@@ -64,8 +69,9 @@ export default class Staking extends Component {
 
     const normalBalance = await this.state.hydroContract.methods.balanceOf(this.state.account).call()
     if (this._isMounted){
-       this.setState({normalBalance:normalBalance},()=>console.log())
+       this.setState({normalBalance:fromWei(normalBalance)},()=>console.log())
     }
+
 
     const duration = await this.state.stakingContract.methods.DURATION().call()
     if (this._isMounted){
@@ -86,16 +92,16 @@ export default class Staking extends Component {
     this.setState({loading:false})
     }
 
-   
    async getUsdPrice() {
           const req = await getBalanceUsd(1);
           this.setState({price:req},()=>console.log())   
       }
   
+   
 
 	constructor(props) {
-  super(props)
-  this.state = {
+    super(props)
+    this.state = {
         staking_ABI:[],
         stakingContract:[],
         hydroContract:[],
@@ -104,8 +110,8 @@ export default class Staking extends Component {
         price:0,
 
         duration:'',
-        stakingBalance:0,
         normalBalance:'',
+        stakingBalance:0,
         totalStaking:0,
 
         address:null,
@@ -138,7 +144,7 @@ render(){
       
       <Row className="wallet__row fadeit">
         <Col sm="12" md="12" lg="12" xl="12">
-        <Stake duration={this.state.duration} account={this.state.account} normalBalance={this.state.normalBalance} contract={this.state.stakingContract} />
+            <AccountDetails stakingBalance={this.state.stakingBalance} price={this.state.price} normalBalance={this.state.normalBalance}/>
         </Col>
         <Col>
         
@@ -149,7 +155,6 @@ render(){
       
       <Row className="identity__row fadeit mt-5">
       <Col sm="12" md="12" lg="12" xl="12">
-      <Unstake duration={this.state.duration} account={this.state.account} contract={this.state.stakingContract} stakingBalance={this.state.stakingBalance}/>  
 
         </Col>
       </Row>
@@ -167,6 +172,4 @@ componentDidMount(){
   this.getUsdPrice();
 }
 }
-
-
 
