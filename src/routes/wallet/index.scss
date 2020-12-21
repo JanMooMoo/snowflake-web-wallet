@@ -34,3 +34,25 @@
   box-shadow: none;
 }
 */
+
+.btn-secondary {
+  background-color: #784083;
+  border-color: #784083;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background-color: #48274f;
+  border-color: #48274f;
+}
+
+.btn-secondary:active {
+  background-color: #784083!important;
+}
+
+
+.btn-secondary:focus {
+  background-color: #48274f;
+  border-color: #48274f;
+}
+

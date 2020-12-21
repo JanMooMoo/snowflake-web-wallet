@@ -12,6 +12,7 @@ import {
 
 import Header from '../header';
 import Wallet from '../../routes/wallet';
+import Staking from '../../routes/staking';
 import Sidebar from '../sidebar';
 
 function App() {
@@ -22,11 +23,12 @@ function App() {
     <Container fluid className="app">
       <Row>
         <Col xs="12" sm="12" md="12" lg="12" xl="12" className="app__content">
-        <Col className="new-sidebar">
+      
         <Sidebar />
-        </Col>
+          <hr/>
           <Switch>
             <Route exact path="/wallet" component={Wallet} />
+            <Route exact path="/staking" component={Staking} />
           </Switch>
         </Col>
       </Row>

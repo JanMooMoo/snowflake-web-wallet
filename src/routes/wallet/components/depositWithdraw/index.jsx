@@ -84,14 +84,14 @@ function DepositWithdraw() {
             </p>
           </Col>
         </Row>
-        <Row className="justify-content-center align-items-center py-5">
+        <Row className="justify-content-center align-items-center pt-5 pr-4">
           <Col className="text-right center" sm="12" xs="12" med="6" lg="6" xl="6">
-            <Button className="deposit-withdraw__deposit-button" onClick={() => setTab('deposit')}>
+            <Button className="deposit-withdraw__deposit-button mt-3" onClick={() => setTab('deposit')}>
               Deposit
             </Button>
           </Col>
           <Col className="text-left center" sm="12" xs="12" med="6" lg="6" xl="6">
-            <Button color="success deposit-withdraw__withdraw-button" onClick={() => setTab('withdraw')}>
+            <Button color="success deposit-withdraw__withdraw-button mt-3" onClick={() => setTab('withdraw')}>
               Withdraw
             </Button>
           </Col>

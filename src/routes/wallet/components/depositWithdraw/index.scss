@@ -38,18 +38,20 @@
 }
 
 .deposit-withdraw__deposit-button {
-  background: #367dbf;
+  background: #00396e;
   border: none;
+  border-radius:25px;
 }
 
 .deposit-withdraw__deposit-button:hover {
-  background: #215687;
+  background: #012547;
   border: none;
 }
 
 .deposit-withdraw__withdraw-button {
   background: #00396e;
   border: none;
+  border-radius:25px;
 }
 
 .deposit-withdraw__withdraw-button:hover {

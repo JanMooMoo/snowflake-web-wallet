@@ -42,11 +42,39 @@ function Sidebar() {
       return (
         <div>
           <NavItem>
+            
+            <div className="routes">
             <NavLink tag={RouterNavLink} exact to="/wallet">
-              <Badge className="sidebar__badge" color="secondary" pill>
+           
+          <h2 className="header__title ">
+          <Badge className="sidebar__badge" color="secondary" pill>
+              <i class="fas fa-wallet"></i>
+              </Badge>
+              Wallet
+          </h2>
+          </NavLink>
+
+          <NavLink tag={RouterNavLink} exact to="/staking">
+         
+          <h2 className="header__title ">
+          <Badge className="sidebar__badge" color="secondary" pill>
+              <i class="fas fa-chart-line"></i>
+              </Badge>
+              staking
+          </h2>
+          </NavLink>
+
+          <NavLink tag={RouterNavLink} exact to="/ein">
+         
+          <h2 className="header__title">
+          <Badge className="sidebar__badge" color="secondary" pill>
                 <img src={whiteHydroDrop} alt="Hydro Drop" className="sidebar__hydro-drop" />
               </Badge>
-            </NavLink>
+              Identity
+          </h2>
+          </NavLink>
+          </div>
+            
           </NavItem>
         </div>
       );
