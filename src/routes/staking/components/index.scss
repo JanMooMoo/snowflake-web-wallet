@@ -66,7 +66,7 @@
     color:rgb(148, 156, 189);
   }
   
-  /* Tooltip text */
+
   .tooltips .tooltiptexts {
     visibility: hidden;
     width: 250px;
@@ -76,7 +76,7 @@
     padding: 5px 0px;
     border-radius: 6px;
     font-size: 15px;
-    /* Position the tooltip text - see examples below! */
+    
     position: absolute;
     z-index: 1;
   }
@@ -86,11 +86,11 @@
     margin:0px 5px;
   }
   
-  /* Show the tooltip text when you mouse over the tooltip container */
+ 
   .tooltips:hover .tooltiptexts {
     visibility: visible;
   }
-  
+
   .sufficient-funds {
     color: #6d738c;
     font-size: 5px;
@@ -105,15 +105,12 @@
   
   .Card_main_cap {
     padding: 20px 25px;
-    height: 100%;
-    background:#010d30;
-    color:#93a5e2;
-    color:#f3ba4f;
+    height: 100%;;
     color:#dfbc7c;
-    background:linear-gradient(40deg,#010d18,#061957,#054179);
+    background:linear-gradient(40deg,#010d18,#061957,#043869);
     border-radius:10px;
     transition: all .2s ease-in-out;
-    cursor:pointer;
+    box-shadow: -2px 3px 0px 0px #000000;
     text-shadow:1px 2px 0 black,  
      1px 1px 0 #000,
      1px 1px 0 #000,

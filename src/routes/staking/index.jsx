@@ -131,7 +131,7 @@ render(){
         </Col>
         
         <Col sm="12" md="12" lg="4" xl="4" className="mt-2">
-        <section class="Card_main_cap"><h2>Total Staking</h2><strong><p>{this.state.totalStaking}</p></strong></section>
+        <section class="Card_main_cap"><h2>Total Staked</h2><strong><p>{this.state.totalStaking}</p></strong></section>
         </Col>
 
       </Row>

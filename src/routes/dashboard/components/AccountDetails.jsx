@@ -109,7 +109,7 @@ import React, {
                  <thead>
                  <tr>
                  <th>My Wallet</th>
-                 <th>Amount</th>
+                 <th>Balance</th>
                  <th>USD Value</th>
                  <th>Transact</th>
                 </tr>
@@ -142,8 +142,6 @@ import React, {
              </div>
          
              </Row>
-  
-       
   
       </Card>
     );
