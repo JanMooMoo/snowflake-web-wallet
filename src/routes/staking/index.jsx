@@ -19,6 +19,7 @@ import {
 } from '../../services/hydroPrice';
 
 
+var numeral = require('numeral');
 
 export default class Staking extends Component {
 
@@ -51,8 +52,12 @@ export default class Staking extends Component {
     if (this._isMounted){
     this.setState({account: accounts[0]}); 
     }
-    
-    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x267161dCb3ed38FD8105E682FbAD5f25564eA902');
+
+    const Staking_Address = '0x78726681C74FDEDd6776C0c075B222E6105CfdFf';
+    if (this._isMounted){ 
+      this.setState({Staking_Address:Staking_Address})
+    }
+    const stakingContract= new web3.eth.Contract(Staking_ABI,Staking_Address);
     if (this._isMounted){
         this.setState({stakingContract:stakingContract});
     }
@@ -67,6 +72,11 @@ export default class Staking extends Component {
        this.setState({normalBalance:normalBalance},()=>console.log())
     }
 
+    const allowance = await this.state.hydroContract.methods.allowance(this.state.account,Staking_Address).call()
+    if (this._isMounted){
+       this.setState({allowance:allowance},()=>console.log())
+    }
+
     const duration = await this.state.stakingContract.methods.DURATION().call()
     if (this._isMounted){
        this.setState({duration:duration},()=>console.log())
@@ -74,13 +84,16 @@ export default class Staking extends Component {
 
     const stakingBalance = await this.state.stakingContract.methods.balanceOf(this.state.account).call()
     if (this._isMounted){
-      this.setState({stakingBalance:stakingBalance},()=>console.log())
+      this.setState({stakingBalance:web3.utils.fromWei(stakingBalance)},()=>console.log())
    }
 
    const totalStaking= await this.state.stakingContract.methods.totalSupply().call()
    if (this._isMounted){
-     this.setState({totalStaking:totalStaking},()=>console.log())
+     this.setState({totalStaking:web3.utils.fromWei(totalStaking)},()=>console.log())
   }
+
+    this.state.hydroContract.events.allEvents({filter:{_owner:this.state.account,_from:this.state.account,_to:this.state.account},fromBlock:blockNumber, toBlock:'latest'})
+    .on('data',(log)=>{ this.loadBlockchain()})
 
     
     this.setState({loading:false})
@@ -102,11 +115,14 @@ export default class Staking extends Component {
         account:[],
         loading:true,
         price:0,
+        Staking_Address:'',
 
         duration:'',
-        stakingBalance:0,
+        stakingBalance:'',
         normalBalance:'',
-        totalStaking:0,
+        allowance:'',
+        totalStaking:'',
+        
 
         address:null,
         blockNumber:'',
@@ -131,14 +147,20 @@ render(){
         </Col>
         
         <Col sm="12" md="12" lg="4" xl="4" className="mt-2">
-        <section class="Card_main_cap"><h2>Total Staked</h2><strong><p>{this.state.totalStaking}</p></strong></section>
+        <section class="Card_main_cap"><h2>Total Staked</h2><strong><p>{numeral(this.state.totalStaking).format('0,00.00')}</p></strong></section>
         </Col>
 
       </Row>
       
       <Row className="wallet__row fadeit">
         <Col sm="12" md="12" lg="12" xl="12">
-        <Stake duration={this.state.duration} account={this.state.account} normalBalance={this.state.normalBalance} contract={this.state.stakingContract} />
+        <Stake duration={this.state.duration} 
+        account={this.state.account} 
+        normalBalance={this.state.normalBalance} 
+        allowance={this.state.allowance}
+        contract={this.state.stakingContract}
+        hydroContract={this.state.hydroContract}
+        staking_address={this.state.Staking_Address} />
         </Col>
         <Col>
         

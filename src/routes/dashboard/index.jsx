@@ -25,6 +25,7 @@ import {
   } from '../../services/format';
 
 
+var numeral = require('numeral');
 
 export default class Dashboard extends Component {
 
@@ -57,7 +58,7 @@ export default class Dashboard extends Component {
     this.setState({account: accounts[0]}); 
     }
     
-    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x267161dCb3ed38FD8105E682FbAD5f25564eA902');
+    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x78726681C74FDEDd6776C0c075B222E6105CfdFf');
     if (this._isMounted){
         this.setState({stakingContract:stakingContract});
     }
@@ -80,15 +81,17 @@ export default class Dashboard extends Component {
 
     const stakingBalance = await this.state.stakingContract.methods.balanceOf(this.state.account).call()
     if (this._isMounted){
-      this.setState({stakingBalance:stakingBalance},()=>console.log())
+      this.setState({stakingBalance:web3.utils.fromWei(stakingBalance)},()=>console.log())
    }
 
    const totalStaking= await this.state.stakingContract.methods.totalSupply().call()
    if (this._isMounted){
-     this.setState({totalStaking:totalStaking},()=>console.log())
+     this.setState({totalStaking:web3.utils.fromWei(totalStaking)},()=>console.log())
   }
+  
+    this.state.hydroContract.events.allEvents({filter:{_owner:this.state.account,_from:this.state.account,_to:this.state.account},fromBlock:blockNumber, toBlock:'latest'})
+    .on('data',(log)=>{ this.loadBlockchain()})
 
-    
     this.setState({loading:false})
     }
 
@@ -137,7 +140,7 @@ render(){
         </Col>
         
         <Col sm="12" md="12" lg="4" xl="4" className="mt-2">
-        <section class="Card_main_cap"><h2>Total Staked</h2><strong><p>{this.state.totalStaking}</p></strong></section>
+        <section class="Card_main_cap"><h2>Total Staked</h2><strong><p>{numeral(this.state.totalStaking).format('0,00.00')}</p></strong></section>
         </Col>
 
       </Row>

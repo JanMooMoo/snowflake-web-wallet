@@ -35,10 +35,8 @@ import React, {
   import hydro_blue_drop from '../../staking/components/hydro_blue_drop.png' 
   
 
- 
   
-  
-  
+  var numeral = require('numeral'); 
   
   function AccountDetails(props) {
   
@@ -68,12 +66,12 @@ import React, {
         /*if (props.normalBalance) {
           const usd = await getBalanceUsd(props.normalBalance);
           setUsdBalanceEth(usd.toString().substring(0, 5));
-        }
+        }*/
 
         if (props.stakingBalance) {
           const stake = await getBalanceUsd(props.stakingBalance);
           setUsdBalanceStake(stake.toString().substring(0, 5));
-        }*/
+        }
         
       }
   

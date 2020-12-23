@@ -27,17 +27,16 @@ import {
 } from '../../../services/hydroPrice';
 
 import {
+  toWei,
   fromWei,
   formatAmount,
 } from '../../../services/format';
 
-import {
-  stakeDuration,
-} from '../../../services/utilities';
+
 import TransactButton from './buttons/TransactButton';
 import './index.scss'
 
-
+var numeral = require('numeral');
 
 
 function Stake(props) {
@@ -71,6 +70,20 @@ function Stake(props) {
   if(formatAmount(fromWei(props.normalBalance)) < parseInt(amountToStake) ){
     funds = 'insufficient-funds'
   }
+  
+  let minimum = 'sufficient-funds'
+  if(amountToStake < parseInt(222222) ){
+    minimum = 'insufficient-funds'
+  }
+
+  let approved = false;
+  
+  if(formatAmount(fromWei(props.allowance)) >= parseInt(222222)){
+    approved = true;
+    if(formatAmount(fromWei(props.allowance)) < parseInt(amountToStake) ){
+      funds = 'insufficient-funds'
+    }
+  }
 
   return (
     <Card className="buy">
@@ -95,7 +108,7 @@ function Stake(props) {
         </Col>
      
         <p className="buy__test-tokens mb-0 col-sm-10 mt-1">
-          Available Hydro for staking
+          Hydro Balance
         </p>  
         
           
@@ -108,30 +121,36 @@ function Stake(props) {
             <div class="FormGroup_label__3QiUB">
               <label for="value">Amount</label>
               </div>
-              <div class="FormGroup_help__36Rs-">Balance: <strong>{formatAmount(fromWei(props.normalBalance))}</strong></div>
+              <div class="FormGroup_help__36Rs-">Approved: <strong>{numeral((fromWei(props.allowance))).format('0,00.00')}</strong></div>
               </header>
 
               <div class=""><div class="FormGroup_wrapper__2JKVL">
 
                 <div class="FormGroup_field__1mGpF">
-                <input id="value" name="value" autocomplete="off" type="number" step="0.000001" value={amountToStake} placeholder="0.000000" onChange={e => setAmountToStake(e.target.value)} />
+                <input id="value" name="value" autocomplete="off" type="number" step="0.000001" value={(amountToStake)} placeholder="0.000000" onChange={e => setAmountToStake(e.target.value)} />
                 </div>
-                <div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>
+                {approved?<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.allowance)))}>Max</div>:<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>}
                 </div>
               </div>
               
               </div>
             </div>
 
-       <section className={funds}><strong>Insufficient Hydro Balance</strong></section>
-
-      <Row className="justify-content-center mt-3">
+       <div className={minimum}><strong>Minimum amount of 222,222 Hydro to stake</strong></div>
+       <div className="m-1"/>
+       <div className={funds}><strong>Insufficient Hydro Balance</strong></div>
+       
+      <Row className="justify-content-center mt-1">
         <Col className="text-center">
 
-        <TransactButton
+        {approved? <TransactButton
             readyText='Stake'
-            method={()=>props.contract.methods.stake(amountToStake)}         
-          />
+            method={()=>props.contract.methods.stake(toWei(amountToStake))}         
+          />:
+          <TransactButton
+            readyText='Approve'
+            method={()=>props.hydroContract.methods.approve(props.staking_address,toWei(amountToStake))}         
+          />}
           
         </Col>
       </Row>

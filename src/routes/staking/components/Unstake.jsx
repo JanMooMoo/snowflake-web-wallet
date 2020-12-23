@@ -27,11 +27,13 @@ import React, {
   } from '../../../services/hydroPrice';
   
   import {
+    toWei,
     fromWei,
     formatAmount,
   } from '../../../services/format';
   import TransactButton from './buttons/TransactButton';
   
+  var numeral = require('numeral');
   
   function Unstake(props) {
   
@@ -69,7 +71,7 @@ import React, {
   
         <p className="available-staking mb-0 col-sm-6 col-xs-5 col-lg-3" >
             <img src={hydro_blue_drop} className="hydro-staking-logo"/>
-                {props.stakingBalance}
+              {numeral(props.stakingBalance).format('0,00')}
               </p>
   
           <Col xs="1" sm="2" lg="7" xl="8" className="text-right ml-5">
@@ -97,7 +99,7 @@ import React, {
               <div class="FormGroup_label__3QiUB">
                 <label for="value">Amount</label>
                 </div>
-                <div class="FormGroup_help__36Rs-">Balance: <strong>{props.stakingBalance}</strong></div>
+                <div class="FormGroup_help__36Rs-">Balance: <strong>{numeral(props.stakingBalance).format('0,00')}</strong></div>
                 </header>
                 <div class=""><div class="FormGroup_wrapper__2JKVL">
   
@@ -117,7 +119,7 @@ import React, {
           <Col className="text-center">
           <TransactButton
             readyText='Unstake'
-            method={()=>props.contract.methods.withdraw(amountToUnstake)}         
+            method={()=>props.contract.methods.withdraw(toWei(amountToUnstake))}         
           />
           </Col>
         </Row>
