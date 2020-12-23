@@ -23,9 +23,8 @@ function App() {
     <Header />
     <Container fluid className="app">
       <Row>
-        <Col xs="12" sm="12" md="12" lg="12" xl="12" className="app__content">
-      
         <Sidebar />
+        
           <hr/>
           <Switch>
           <Route exact path="/" component={Staking} />
@@ -33,7 +32,7 @@ function App() {
             <Route exact path="/staking" component={Staking} />
             <Route exact path="/overview" component={Dashboard} />
           </Switch>
-        </Col>
+     
       </Row>
     </Container>
   </div>
