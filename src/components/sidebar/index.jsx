@@ -48,12 +48,12 @@ function Sidebar() {
         </div>
       );
     }
-    
-    
+
+
       return (
         <div>
           <NavItem>
-            
+
           <div className="routes">
 
           <NavLink tag={RouterNavLink} exact to="/wallet">
@@ -67,17 +67,17 @@ function Sidebar() {
           </NavLink>
 
           <NavLink tag={RouterNavLink} exact to="/staking">
-         
+
           <h2 className="header__title ">
           <Badge className="sidebar__badge" color="secondary" pill>
               <i class="fas fa-chart-line"></i>
               </Badge>
-              staking
+              Staking
           </h2>
           </NavLink>
 
           <NavLink tag={RouterNavLink} exact to="/overview">
-         
+
           <h2 className="header__title">
           <Badge className="sidebar__badge" color="secondary" pill>
                 <img src={whiteHydroDrop} alt="Hydro Drop" className="sidebar__hydro-drop" />
@@ -86,13 +86,13 @@ function Sidebar() {
           </h2>
           </NavLink>
           </div>
-            
+
           </NavItem>
         </div>
       );
- 
 
-    
+
+
 
     /*return (
       <div className="onboardingButton">

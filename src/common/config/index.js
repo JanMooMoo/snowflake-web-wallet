@@ -1,7 +1,7 @@
 // wallet Configuration File.
 const config = {
   general: {
-    walletName:                   "Snowflake Wallet",
+    walletName:                   "Aegir Wallet",
     walletMetaKeywords:           "Wallet, ERC20 Wallet, Hydro-Wallet, Web-Wallet",
     walletMetaDescription:        "Hydro wallet powered by Snowflake.",
     googleAnalyticsTag:              "UA-XXXXXXXXX",
