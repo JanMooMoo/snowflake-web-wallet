@@ -58,7 +58,7 @@ export default class Dashboard extends Component {
     this.setState({account: accounts[0]}); 
     }
     
-    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x78726681C74FDEDd6776C0c075B222E6105CfdFf');
+    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x0Bf07f9Ca57f19EBd72f5D29a8cc39270b4421D2');
     if (this._isMounted){
         this.setState({stakingContract:stakingContract});
     }
@@ -84,6 +84,11 @@ export default class Dashboard extends Component {
       this.setState({stakingBalance:web3.utils.fromWei(stakingBalance)},()=>console.log())
    }
 
+   const reward = await this.state.stakingContract.methods.earned(this.state.account).call()
+    if (this._isMounted){
+      this.setState({reward:web3.utils.fromWei(reward)},()=>console.log())
+   }
+
    const totalStaking= await this.state.stakingContract.methods.totalSupply().call()
    if (this._isMounted){
      this.setState({totalStaking:web3.utils.fromWei(totalStaking)},()=>console.log())
@@ -99,6 +104,8 @@ export default class Dashboard extends Component {
           const req = await getBalanceUsd(1);
           this.setState({price:req},()=>console.log())   
       }
+
+  
   
    
 
@@ -114,6 +121,7 @@ export default class Dashboard extends Component {
 
         duration:'',
         normalBalance:'',
+        reward:0,
         stakingBalance:0,
         totalStaking:0,
 
@@ -147,7 +155,11 @@ render(){
       
       <Row className="wallet__row fadeit">
         <Col sm="12" md="12" lg="12" xl="12">
-            <AccountDetails stakingBalance={this.state.stakingBalance} price={this.state.price} normalBalance={this.state.normalBalance}/>
+            <AccountDetails stakingBalance={this.state.stakingBalance} 
+            price={this.state.price} 
+            normalBalance={this.state.normalBalance}
+            reward = {this.state.reward}
+            contract={this.state.stakingContract}/>
         </Col>
         <Col>
         

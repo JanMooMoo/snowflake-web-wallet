@@ -10,6 +10,7 @@ import React, {
   } from 'react';
 
   import {Link} from 'react-router-dom';
+  import ClaimButton from './buttons/ClaimButton';
   
   import {
     Row,
@@ -33,6 +34,7 @@ import React, {
   } from '../../../services/format';
 
   import hydro_blue_drop from '../../staking/components/hydro_blue_drop.png' 
+
   
 
   
@@ -78,6 +80,10 @@ import React, {
       getUsdPrice();
     }, [snowflakeBalance]);
    
+
+    function claim(){
+      props.contract.methods.getReward()
+    }
     
   
     return (
@@ -133,6 +139,20 @@ import React, {
                  <th> <img src={hydro_blue_drop} className="hydro-staking-logo ml-1"/>{props.stakingBalance.toString().substring(0, 5)}</th>
                  <th>${(props.price * props.stakingBalance).toString().substring(0, 5)}</th>
                  <th>  <Link to="/staking"><button className="table_button">Stake</button></Link></th>
+                 </tr>
+
+                 
+                 <tr>
+                 <th>Reward</th>
+                 <th> <img src={hydro_blue_drop} className="hydro-staking-logo ml-1"/>{props.reward.toString().substring(0, 5)}</th>
+                 <th>${(props.price * props.reward).toString().substring(0, 5)}</th>
+                 <th>  
+                   <ClaimButton
+                      readyText='Claim'
+                      method={()=>props.contract.methods.getReward()}         
+                      />
+                      </th>
+                
                  </tr>
               </tbody>
                  

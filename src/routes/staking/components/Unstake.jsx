@@ -78,8 +78,8 @@ import React, {
 
             <div className="tooltips"> <i class="fas fa-info-circle"  style={{cursor:"pointer"}}/>
             <span className="tooltiptexts">Information
-            <p className="mt-2">1. Lock-up hydro tokens for 7 days get an annualized yield of 7%</p>
-            <p className="mt-1">2. Total supply for Stacking : 10 Million Hydro Tokens</p>
+            <p className="mt-2">1. Lock-up hydro tokens to get an annualized yield of 7-12%</p>
+            <p className="mt-1">2. Total supply for Stacking : 100 Million Hydro Tokens</p>
             <p className="mt-1 mb-2">3. Token holders can also unstake partial or full tokens before maturity. With the loss of some benefits.</p>
             </span>
             </div>
