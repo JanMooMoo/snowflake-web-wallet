@@ -18,7 +18,7 @@ import {
   useWeb3Context,
 } from 'web3-react';
 
-import hydro_blue_drop from './hydro_blue_drop.png' 
+import hydro_blue_drop from './hydro_blue_drop.png'
 import SnowflakeContext from '../../../contexts/snowflakeContext';
 
 
@@ -43,7 +43,7 @@ function Stake(props) {
 
   const [usdBalance, setUsdBalance] = useState('0');
   const [amountToStake, setAmountToStake] = useState('');
-  
+
 
   const web3 = useWeb3Context();
   const snowflakeContext = useContext(SnowflakeContext);
@@ -64,20 +64,20 @@ function Stake(props) {
 
     getUsdPrice();
   }, [snowflakeBalance]);
- 
+
 
   let funds = 'sufficient-funds'
   if(formatAmount(fromWei(props.normalBalance)) < parseInt(amountToStake) ){
     funds = 'insufficient-funds'
   }
-  
+
   let minimum = 'sufficient-funds'
   if(amountToStake < parseInt(222222) ){
     minimum = 'insufficient-funds'
   }
 
   let approved = false;
-  
+
   if(formatAmount(fromWei(props.allowance)) >= parseInt(222222)){
     approved = true;
     if(formatAmount(fromWei(props.allowance)) < parseInt(amountToStake) ){
@@ -99,22 +99,22 @@ function Stake(props) {
         <div className="tooltips"> <i class="fas fa-info-circle"  style={{cursor:"pointer"}}/>
         <span className="tooltiptexts">Information
         <p className="mt-2">1. Lock-up hydro tokens to get an annualized yield of 7-12%</p>
-        <p className="mt-1">2. Total supply for Stacking : 100 Million Hydro Tokens</p>
+        <p className="mt-1">2. Total supply for Staking : 100 Million Hydro Tokens</p>
         <p className="mt-1 mb-2">3. Token holders can also unstake partial or full tokens before maturity. With the loss of some benefits.</p>
         </span>
         </div>
-       
-        
+
+
         </Col>
-     
+
         <p className="buy__test-tokens mb-0 col-sm-10 mt-1">
           Hydro Balance
-        </p>  
-        
-          
+        </p>
+
+
       </Row>
 
-     
+
       <div class="FormGroup_group__1Nj2I FormGroup_component__1Xdv1 py-4">
         <div class="FormGroup_border__1leMw">
           <header class="FormGroup_header__3pzEu">
@@ -132,26 +132,26 @@ function Stake(props) {
                 {approved?<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.allowance)))}>Max</div>:<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>}
                 </div>
               </div>
-              
+
               </div>
             </div>
 
        <div className={minimum}><strong>Minimum amount of 222,222 Hydro to stake</strong></div>
        <div className="m-1"/>
        <div className={funds}><strong>Insufficient Hydro Balance</strong></div>
-       
+
       <Row className="justify-content-center mt-1">
         <Col className="text-center">
 
         {approved? <TransactButton
             readyText='Stake'
-            method={()=>props.contract.methods.stake(toWei(amountToStake))}         
+            method={()=>props.contract.methods.stake(toWei(amountToStake))}
           />:
           <TransactButton
             readyText='Approve'
-            method={()=>props.hydroContract.methods.approve(props.staking_address,toWei(amountToStake))}         
+            method={()=>props.hydroContract.methods.approve(props.staking_address,toWei(amountToStake))}
           />}
-          
+
         </Col>
       </Row>
     </Card>

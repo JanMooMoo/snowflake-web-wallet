@@ -8,7 +8,7 @@ import React, {
     useContext,
     useEffect,
   } from 'react';
-  
+
   import {
     Row,
     Col,
@@ -17,37 +17,37 @@ import React, {
   import {
     useWeb3Context,
   } from 'web3-react';
-  
-  import hydro_blue_drop from './hydro_blue_drop.png' 
+
+  import hydro_blue_drop from './hydro_blue_drop.png'
   import TransactionButton from '../../../components/transactionButton';
   import SnowflakeContext from '../../../contexts/snowflakeContext';
-  
+
   import {
     getBalanceUsd,
   } from '../../../services/hydroPrice';
-  
+
   import {
     toWei,
     fromWei,
     formatAmount,
   } from '../../../services/format';
   import TransactButton from './buttons/TransactButton';
-  
+
   var numeral = require('numeral');
-  
+
   function Unstake(props) {
-  
+
     const [usdBalance, setUsdBalance] = useState('0');
     const [amountToUnstake, setAmountToUnstake] = useState('');
     const web3 = useWeb3Context();
     const snowflakeContext = useContext(SnowflakeContext);
    // const stakeBalance = props.contract.methods.balanceOf(props.account).call();
-  
+
     const {
       ethAddress,
       snowflakeBalance,
     } = snowflakeContext;
-  
+
     useEffect(() => {
       async function getUsdPrice() {
         if (snowflakeBalance) {
@@ -55,44 +55,44 @@ import React, {
           setUsdBalance(req.toString().substring(0, 5));
         }
       }
-  
+
       getUsdPrice();
     }, [snowflakeBalance]);
-   
-  
+
+
     let funds = 'sufficient-funds'
     if(parseInt(props.stakingBalance) < parseInt(amountToUnstake) ){
       funds = 'insufficient-funds'
     }
-   
+
     return (
       <Card className="buy">
         <Row className="buy__header ">
-  
+
         <p className="available-staking mb-0 col-sm-6 col-xs-5 col-lg-3" >
             <img src={hydro_blue_drop} className="hydro-staking-logo"/>
               {numeral(props.stakingBalance).format('0,00')}
               </p>
-  
+
           <Col xs="1" sm="2" lg="7" xl="8" className="text-right ml-5">
 
             <div className="tooltips"> <i class="fas fa-info-circle"  style={{cursor:"pointer"}}/>
             <span className="tooltiptexts">Information
             <p className="mt-2">1. Lock-up hydro tokens to get an annualized yield of 7-12%</p>
-            <p className="mt-1">2. Total supply for Stacking : 100 Million Hydro Tokens</p>
+            <p className="mt-1">2. Total supply for Staking : 100 Million Hydro Tokens</p>
             <p className="mt-1 mb-2">3. Token holders can also unstake partial or full tokens before maturity. With the loss of some benefits.</p>
             </span>
             </div>
-            
+
           </Col>
-  
+
           <p className="buy__test-tokens mb-0 col-sm-10 mt-1">
             Staked Hydro
-          </p>  
-            
+          </p>
+
         </Row>
-  
-       
+
+
         <div class="FormGroup_group__1Nj2I FormGroup_component__1Xdv1 py-4">
           <div class="FormGroup_border__1leMw">
             <header class="FormGroup_header__3pzEu">
@@ -102,14 +102,14 @@ import React, {
                 <div class="FormGroup_help__36Rs-">Balance: <strong>{numeral(props.stakingBalance).format('0,00')}</strong></div>
                 </header>
                 <div class=""><div class="FormGroup_wrapper__2JKVL">
-  
+
                   <div class="FormGroup_field__1mGpF">
                   <input id="value" name="value" autocomplete="off" type="number" step="0.000001" value={amountToUnstake} placeholder="0.000000" onChange={e => setAmountToUnstake(e.target.value)} />
                   </div>
                   <div class="FormGroup_unit__3Lev9" onClick={e => setAmountToUnstake(props.stakingBalance)}>Max</div>
                   </div>
                 </div>
-                
+
                 </div>
               </div>
 
@@ -119,12 +119,12 @@ import React, {
           <Col className="text-center">
           <TransactButton
             readyText='Unstake'
-            method={()=>props.contract.methods.withdraw(toWei(amountToUnstake))}         
+            method={()=>props.contract.methods.withdraw(toWei(amountToUnstake))}
           />
           </Col>
         </Row>
       </Card>
     );
   }
-  
+
   export default Unstake;
