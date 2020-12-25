@@ -134,13 +134,13 @@ function Withdraw(props) {
           </div>
         </Col>
       </Row>
-      <Row className="pt-5 mx-4 justify-content-center align-items-center no-gutters">
-        <Col className="text-left">
+      <Row className="pt-5 mt-3 justify-content-center align-items-center no-gutters">
+        <Col className="text-left mt-4">
           <Button onClick={cancel}>
             Cancel
           </Button>
         </Col>
-        <Col className="text-right">
+        <Col className="text-right mt-4">
           <TransactionButton
             color="success"
             initialText="Confirm"

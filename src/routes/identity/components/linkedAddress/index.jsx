@@ -31,14 +31,10 @@ const LinkedAddress = (props) => {
   return (
     <Alert className="linked-address">
       <Row className="align-items-center">
-        <Col sm="1">
-          <IoIosCheckmarkCircleOutline
-            className="linked-address__icon"
-          />
-        </Col>
-        <Col>
+        
+        <Col sm="9">
           <p className="mb-0 linked-address__linked-wallet-address">
-            {address}
+            {address.slice(0,10) + '...' + address.slice(32,42)}
           </p>
           <p className="linked-address__date">
             {formattedDate.toLocaleString('en-US', {
@@ -49,6 +45,11 @@ const LinkedAddress = (props) => {
               minute: '2-digit',
             })}
           </p>
+        </Col>
+        <Col sm="1">
+          <IoIosCheckmarkCircleOutline
+            className="linked-address__icon"
+          />
         </Col>
         <Col className="text-right">
           {removable && (

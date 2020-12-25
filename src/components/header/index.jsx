@@ -48,18 +48,27 @@ class Header extends React.Component {
     return (
       <div>
         <Navbar color="light" light expand="md" className="bg-white">
-          <NavbarBrand tag={RouterNavLink} exact to="/">
+          <NavbarBrand tag={RouterNavLink} exact to="/wallet">
           <h2 className="header__title">
               <img src={headerLogo} alt="Powered by Hydro" className="header__logo" />
 
             </h2>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
+
+          
+
+
           <Collapse isOpen={isOpen} navbar>
+          
             <Nav className="ml-auto align-items-center" navbar>
+              
               <NavItem>
-                <HeaderAccount />
+                
+              <HeaderAccount />
+              
               </NavItem>
+              
             </Nav>
           </Collapse>
         </Navbar>

@@ -3,6 +3,7 @@ import identityRegistry from './contracts/identityRegistry';
 import clientRaindrop from './contracts/clientRaindrop';
 import oldClientRaindrop from './contracts/oldClientRaindrop';
 import snowflake from './contracts/snowflake';
+import staking from './contracts/staking';
 
 
 
@@ -11,6 +12,7 @@ function subscribeToDeposits(lib, address, callback) {
     snowflake.abi,
     snowflake.address,
   );
+  
 
   lib.currentProvider.setMaxListeners(350);
 
@@ -51,10 +53,12 @@ function getAccountEin(lib, address) {
         // throw new Error('No ein');
         return '';
       }
-
+     
       return ein;
     })
-    .catch(err => err);
+    .catch(err => {
+      return ''
+    });
 }
 
 function getIdentity(lib, account) {
@@ -441,6 +445,16 @@ function addLinkedAddress(lib, account, newAddress, signature, timestamp) {
   });
 }
 
+async function stakeDuration(lib) {
+  const stakingContract = new lib.eth.Contract(
+    staking.abi,
+    staking.address,
+  );
+
+  const duration = await stakingContract.methods.DURATION.call();
+  return duration;
+}
+
 export {
   getAccountEthBalance,
   getAccountHydroBalance,
@@ -468,4 +482,6 @@ export {
   createSignedMessageToLinkAddress,
   addLinkedAddress,
   subscribeToDeposits,
+
+  stakeDuration
 };

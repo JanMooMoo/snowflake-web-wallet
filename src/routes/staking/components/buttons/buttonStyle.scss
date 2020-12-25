@@ -1,0 +1,52 @@
+
+
+  .txButton{
+   color:rgb(238, 237, 237)!important;
+   background: #00396e!important;
+   height:34px!important;
+   border-radius: 5px!important;
+   border:1px solid rgb(179, 133, 66)!important;
+   overflow:hidden!important;
+   font-size: 0.875rem!important;
+   min-width: 100px!important;
+   border-radius:7px!important;
+   margin-top:-5px!important;
+   font-weight:600!important;
+   outline:none!important;
+   border-radius:25px!important;
+   border: none!important;
+   transition:all .2s ease-in-out !important;
+   padding:1.3rem 3rem!important;
+   text-shadow:1px 2px 0 black,  
+   1px 1px 0 #000,
+   1px 1px 0 #000,
+   1px 1px 0 #000,
+   2px 1px 0 #000;  
+ }
+
+ .txButton:hover{
+  background: #012547!important;
+}
+
+ 
+.txDisabled{
+   color:rgba(238, 237, 237, 0.548)!important;
+   background:#083e85!important;
+   height:34px!important;
+   border-radius: 5px!important;
+   border:1px solid rgb(179, 133, 66)!important;
+   overflow:hidden!important;
+   font-size: 0.875rem!important;
+   min-width: 100px!important;
+   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+   border-radius:7px!important;
+   margin-top:-5px!important;
+   font-weight:600!important;
+   outline:none!important;
+   text-shadow:1px 2px 0 black,
+   1px 1px 0 #000,
+   1px 1px 0 #000,
+   1px 1px 0 #000,
+   2px 1px 0 #000;
+   
+ }
