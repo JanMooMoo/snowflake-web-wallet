@@ -53,7 +53,7 @@ export default class Staking extends Component {
     this.setState({account: accounts[0]}); 
     }
 
-    const Staking_Address = '0x0Bf07f9Ca57f19EBd72f5D29a8cc39270b4421D2';
+    const Staking_Address = '0x109FD2dDd45D4322035147E92f4eEa7508ceD368';
     if (this._isMounted){ 
       this.setState({Staking_Address:Staking_Address})
     }

@@ -58,7 +58,7 @@ export default class Dashboard extends Component {
     this.setState({account: accounts[0]}); 
     }
     
-    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x0Bf07f9Ca57f19EBd72f5D29a8cc39270b4421D2');
+    const stakingContract= new web3.eth.Contract(Staking_ABI,'0x109FD2dDd45D4322035147E92f4eEa7508ceD368');
     if (this._isMounted){
         this.setState({stakingContract:stakingContract});
     }
