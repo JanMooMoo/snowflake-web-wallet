@@ -21,8 +21,8 @@ function ProviderStep() {
       slowDrift: false,
     });
 
-    const container = document.getElementById('logo-container');
-    container.appendChild(viewer.container);
+    // const container = document.getElementById('logo-container');
+    // container.appendChild(viewer.container);
   }
 
   useEffect(() => {
@@ -36,7 +36,6 @@ function ProviderStep() {
     <div>
       <Row className="justify-content-center">
         <Col xs="12" sm="4" className="text-center">
-          <div id="logo-container" />
         </Col>
       </Row>
       <Row className="justify-content-center py-3">

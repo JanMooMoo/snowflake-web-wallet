@@ -11,7 +11,7 @@ import {
 
 import Onboarding from '../../../onboarding';
 
-import Identicon from '../../../identicon';
+// import Identicon from '../../../identicon';
 import HeaderDropdown from '../headerDropdown';
 
 import SnowflakeContext from '../../../../contexts/snowflakeContext';
@@ -48,21 +48,21 @@ function HeaderAccount() {
             </span>
           </div>
         </Col>
-        <Col>
-          {identiconRef.current && (
-            <HeaderDropdown
-              target={identiconRef}
-              isOpen={isHeaderDropdownOpen}
-              toggle={() => toggleHeaderDropdown(!isHeaderDropdownOpen)}
-            />
-          )}
-          {ein && (
-            <div ref={identiconRef} className="header-account__identicon">
-              <Identicon seed={ein} size={50} id="identicon" />
-            </div>
-          )}
-        </Col>
-      </Row>
+        </Row>
+        // <Col>
+        //   {identiconRef.current && (
+        //     <HeaderDropdown
+        //       target={identiconRef}
+        //       isOpen={isHeaderDropdownOpen}
+        //       toggle={() => toggleHeaderDropdown(!isHeaderDropdownOpen)}
+        //     />
+        //   )}
+        //   {ein && (
+        //     <div ref={identiconRef} className="header-account__identicon">
+        //       <Identicon seed={ein} size={50} id="identicon" />
+        //     </div>
+        //   )}
+        // </Col>
     );
   }
 

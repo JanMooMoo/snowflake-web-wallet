@@ -9,12 +9,10 @@ import {
   Row,
   Col,
 } from 'reactstrap';
-
 import Header from '../header';
 import Wallet from '../../routes/wallet';
 import Staking from '../../routes/staking';
 import Dashboard from '../../routes/dashboard';
-import Sidebar from '../sidebar';
 
 function App() {
   return (
@@ -23,16 +21,13 @@ function App() {
     <Header />
     <Container fluid className="app">
       <Row>
-        <Sidebar />
-        
           <hr/>
           <Switch>
-          <Route exact path="/" component={Staking} />
+            <Route exact path="/" component={Staking} />
             <Route exact path="/wallet" component={Wallet} />
             <Route exact path="/staking" component={Staking} />
             <Route exact path="/overview" component={Dashboard} />
           </Switch>
-     
       </Row>
     </Container>
   </div>

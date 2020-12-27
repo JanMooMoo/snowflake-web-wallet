@@ -50,7 +50,7 @@ class Header extends React.Component {
 
     return (
       <div>
-        <Navbar color="light" light expand="md" className="bg-white">
+        <Navbar color="light" dark expand="md" className="bg-white">
           <NavbarBrand tag={RouterNavLink} exact to="/wallet">
           <h2 className="header__title">
               <img src={headerLogo} alt="Powered by Hydro" className="header__logo" />

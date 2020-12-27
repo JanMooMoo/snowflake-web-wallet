@@ -58,3 +58,26 @@
   background: #012547;
   border: none;
 }
+
+@media(max-width:600px){
+
+  .deposit-withdraw{
+    height: 400px!important;
+  }
+
+  .text-right{
+    text-align: center!important;
+  }
+
+  .text-left{
+    text-align: center!important;
+  }
+
+  .pr-4, .px-4{
+    padding-right:0!important;
+  }
+
+
+
+
+}
