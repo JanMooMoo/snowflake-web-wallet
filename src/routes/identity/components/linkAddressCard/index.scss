@@ -1,6 +1,6 @@
 /* @define link */
 .link {
-  background-color: #010d30;
+  background-color: #171717;
   border: none;
   color: #fff;
   position: relative;
@@ -25,18 +25,18 @@
 }
 
 .link__input {
-  background: #02103b;
+  background: #555555;
   border: 0;
   height: 50px;
   padding: 15px;
 }
 
 .form-control:focus {
-  background: #02103b!important;
+  background: #555555!important;
 }
 
 .link__input::placeholder {
-  color: #2cbffe;
+  color: #fff;
 }
 
 .link__helper-text {
