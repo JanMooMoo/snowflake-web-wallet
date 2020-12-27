@@ -66,14 +66,21 @@ function Stake(props) {
   }, [snowflakeBalance]);
  
 
-  let funds = 'sufficient-funds'
-  if(formatAmount(fromWei(props.normalBalance)) < parseInt(amountToStake) ){
-    funds = 'insufficient-funds'
+  let allowed = 'sufficient-funds';
+
+  if(fromWei(props.allowance) <= 0){
+   
+    allowed =  'insufficient-funds';
   }
   
-  let minimum = 'sufficient-funds'
+  let funds = 'sufficient-funds';
+  if(formatAmount(fromWei(props.normalBalance)) < parseInt(amountToStake) ){
+    funds = 'insufficient-funds';
+  }
+  
+  let minimum = 'sufficient-funds';
   if(amountToStake < parseInt(222222) ){
-    minimum = 'insufficient-funds'
+    minimum = 'insufficient-funds';
   }
 
   let approved = false;
@@ -81,9 +88,10 @@ function Stake(props) {
   if(formatAmount(fromWei(props.allowance)) >= parseInt(222222)){
     approved = true;
     if(formatAmount(fromWei(props.allowance)) < parseInt(amountToStake) ){
-      funds = 'insufficient-funds'
+      funds = 'insufficient-funds';
     }
   }
+
 
   return (
     <Card className="buy">
@@ -91,16 +99,17 @@ function Stake(props) {
 
       <p className="available-staking mb-0 col-sm-6 col-xs-5 col-lg-3" >
           <img src={hydro_blue_drop} className="hydro-staking-logo"/>
-            {formatAmount(fromWei(props.normalBalance))}
+            {numeral(fromWei(props.normalBalance)).format('0,00.00')}
             </p>
 
         <Col xs="1" sm="2" lg="7" xl="8" className="text-right ml-5">
 
         <div className="tooltips"> <i class="fas fa-info-circle"  style={{cursor:"pointer"}}/>
         <span className="tooltiptexts">Information
-        <p className="mt-2">1. Lock-up hydro tokens to get an annualized yield of 7-12%</p>
-        <p className="mt-1">2. Total supply for Stacking : 100 Million Hydro Tokens</p>
-        <p className="mt-1 mb-2">3. Token holders can also unstake partial or full tokens before maturity. With the loss of some benefits.</p>
+        <p className="mt-2">1. First time stakers will need to request a 1-time approval before staking.</p>
+        <p className="mt-2">2. Staked hydro tokens will be locked & cannot be unstaked for 90 days</p>
+        <p className="mt-2">3. Staked hydro token will get an annualized yield of 7-12%</p>
+        <p className="mt-1">4. Staking rewards is claimable anytime & without lock-up period</p>
         </span>
         </div>
        
@@ -121,7 +130,9 @@ function Stake(props) {
             <div class="FormGroup_label__3QiUB">
               <label for="value">Amount</label>
               </div>
-              <div class="FormGroup_help__36Rs-">Approved: <strong>{numeral((fromWei(props.allowance))).format('0,00.00')}</strong></div>
+              {fromWei(props.allowance) > 0? <div class="FormGroup_help__36Rs-">Available for staking: <strong> {numeral(fromWei(props.normalBalance)).format('0,00.00')}</strong></div>:              
+              <div class="FormGroup_help__36Rs-"><strong>Approved for staking: No</strong></div>}
+
               </header>
 
               <div class=""><div class="FormGroup_wrapper__2JKVL">
@@ -129,27 +140,31 @@ function Stake(props) {
                 <div class="FormGroup_field__1mGpF">
                 <input id="value" name="value" autocomplete="off" type="number" step="0.000001" value={(amountToStake)} placeholder="0.000000" onChange={e => setAmountToStake(e.target.value)} />
                 </div>
-                {approved?<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.allowance)))}>Max</div>:<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>}
+                {approved?<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>:<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>}
                 </div>
               </div>
               
               </div>
             </div>
-
+       <div className={allowed}><strong>Request approval to spend Hydro Token before staking</strong></div>
+       <div className="m-1"/>
        <div className={minimum}><strong>Minimum amount of 222,222 Hydro to stake</strong></div>
        <div className="m-1"/>
        <div className={funds}><strong>Insufficient Hydro Balance</strong></div>
        
-      <Row className="justify-content-center mt-1">
+
+      <Row className="justify-content-center">
         <Col className="text-center">
 
         {approved? <TransactButton
             readyText='Stake'
+            disabled={false}
             method={()=>props.contract.methods.stake(toWei(amountToStake))}         
           />:
           <TransactButton
             readyText='Approve'
-            method={()=>props.hydroContract.methods.approve(props.staking_address,toWei(amountToStake))}         
+            disabled={false}
+            method={()=>props.hydroContract.methods.approve(props.staking_address,toWei('1100000000000000000000000000000'))}         
           />}
           
         </Col>

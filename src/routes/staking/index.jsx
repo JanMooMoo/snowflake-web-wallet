@@ -40,7 +40,7 @@ export default class Staking extends Component {
     }
  
     else{console.log('No Web3 Detected')
-    window.web3 = new Web3(new Web3.providers.WebsocketProvider('wss://rinkeby.infura.io/ws/v3/72e114745bbf4822b987489c119f858b'));  
+    window.web3 = new Web3(new Web3.providers.WebsocketProvider('wss://mainnet.infura.io/ws/v3/72e114745bbf4822b987489c119f858b'));  
     } 
    
     const network = await web3.eth.net.getNetworkType();
@@ -53,7 +53,7 @@ export default class Staking extends Component {
     this.setState({account: accounts[0]}); 
     }
 
-    const Staking_Address = '0x109FD2dDd45D4322035147E92f4eEa7508ceD368';
+    const Staking_Address = '0x83885CcB5a1bffF7a4C2A88dD8b2254b261c76BD';
     if (this._isMounted){ 
       this.setState({Staking_Address:Staking_Address})
     }

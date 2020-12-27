@@ -80,7 +80,13 @@ import React, {
       getUsdPrice();
     }, [snowflakeBalance]);
    
-    console.log('sadasd',props.reward)
+   let disabled = true;
+   
+   if(props.reward > 0.01){
+    disabled = false;
+   }
+
+
     return (
       <Card className="buy">
         <Row className="buy__header ">
@@ -95,10 +101,18 @@ import React, {
                     <div class="Dl_dl__QuJxT Dl_horizontal__1jYvp ml-5 mr-5 mt-3">
                       <div class="Dl_dt__3zoU3 mr-3">Total Hydro</div>
                       <div class="Dl_dd__3OEmm mr-5">{numeral(parseInt(props.normalBalance) + parseInt(fromWei(snowflakeBalance.toString())) + parseInt(props.stakingBalance)).format('0,00.00') }  <img src={hydro_blue_drop} className="hydro-staking-logo ml-1"/></div>
-                    
+
+                      <div class="Dl_dt__3zoU3 mr-3">Reward: </div>
+                      <div class="Dl_dd__3OEmm mr-5">{numeral(props.reward.toString()).format('0,00.00')} <img src={hydro_blue_drop} className="hydro-staking-logo ml-1"/></div>
+
                       <div class="Dl_dt__3zoU3 mr-3">Total Value in USD</div>
-                      <div class="Dl_dd__3OEmm mr-5">${numeral(((props.price * props.normalBalance) + parseInt(usdBalance) + (props.price * props.stakingBalance)).toString()).format('0,00.00')}</div>
-                      </div></div>
+                      <div class="Dl_dd__3OEmm mr-5">${numeral(((props.price * props.normalBalance) + parseInt(usdBalance) + (props.price * props.stakingBalance) + (props.price * props.reward)).toString()).format('0,00.00')}</div>
+                     
+
+                     
+                     
+                      </div>
+                      </div>
         </Row>
 
         <Row className="buy__header ">
@@ -139,14 +153,15 @@ import React, {
                  
                  <tr>
                  <th>Reward</th>
-                 <th> <img src={hydro_blue_drop} className="hydro-staking-logo ml-1"/>{numeral(props.reward.toString()).format('0,00.0000')}</th>
+                 <th> <img src={hydro_blue_drop} className="hydro-staking-logo ml-1"/>{numeral(props.reward.toString()).format('0,00.00')}</th>
                  
                  {(props.price * props.reward) < 0.001 ? <th>$ 0.00</th>:
                  <th>${numeral((props.price * props.reward).toString()).format('0,00.00')}</th>}
                  <th>  
                    <ClaimButton
                       readyText='Claim'
-                      method={()=>props.contract.methods.getReward()}         
+                      method={()=>props.contract.methods.getReward()}  
+                      disabled={disabled}       
                       />
                       </th>
                 
