@@ -21,7 +21,7 @@ import {
 } from 'react-router-dom';
 
 import HeaderAccount from './components/headerAccount';
-import headerLogo from '../../common/img/hydro-white-logo.png';
+import headerLogo from '../../common/img/aegir1.png';
 
 class Header extends React.Component {
   constructor(props) {
