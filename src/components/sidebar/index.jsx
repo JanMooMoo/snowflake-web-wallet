@@ -20,6 +20,7 @@ import {
 import Onboarding from '../onboarding';
 import whiteHydroDrop from '../../common/img/hydro_white_drop.png';
 
+
 import SnowflakeContext from '../../contexts/snowflakeContext';
 
 import {
@@ -60,7 +61,6 @@ function Sidebar() {
 
           <h2 className="header__title ">
           <Badge className="sidebar__badge" color="secondary" pill>
-              <i class="fas fa-wallet"></i>
               </Badge>
               Wallet
           </h2>
@@ -70,7 +70,6 @@ function Sidebar() {
 
           <h2 className="header__title ">
           <Badge className="sidebar__badge" color="secondary" pill>
-              <i class="fas fa-chart-line"></i>
               </Badge>
               Staking
           </h2>
@@ -80,7 +79,6 @@ function Sidebar() {
 
           <h2 className="header__title">
           <Badge className="sidebar__badge" color="secondary" pill>
-                <img src={whiteHydroDrop} alt="Hydro Drop" className="sidebar__hydro-drop" />
               </Badge>
               Overview
           </h2>
@@ -116,7 +114,6 @@ function Sidebar() {
       <div className="py-4">
         <Nav vertical>
           {displayButton()}
-
         </Nav>
       </div>
 

@@ -1,7 +1,7 @@
 /* @define header */
 
 .navbar {
-  background: #010d30!important;
+  background: transparent!important;
   padding: 10px 0 0 20px;
   margin: 0;
   height: 85px;
@@ -15,8 +15,7 @@
 .header__title {
   color: #fff;
   font-size: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 200;
   margin-bottom: -8px;
   text-align: right;
 }
@@ -59,4 +58,21 @@
   left: 140px;
 }
 
+.routes3{
+  display: none!important;
+}
 
+
+@media(max-width:600px){
+.routes{
+  display: none!important;
+}
+
+.routes3{
+  display: contents!important;
+}
+
+.headerAccount{
+  display: none!important;
+}
+}
