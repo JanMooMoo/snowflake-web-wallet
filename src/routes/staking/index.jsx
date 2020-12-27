@@ -87,6 +87,11 @@ export default class Staking extends Component {
       this.setState({stakingBalance:web3.utils.fromWei(stakingBalance)},()=>console.log())
    }
 
+   const deadline = await this.state.stakingContract.methods.canWithdrawAt(this.state.account).call()
+    if (this._isMounted){
+      this.setState({deadline:deadline},()=>console.log("deadline",this.state.deadline))
+   }
+
    const totalStaking= await this.state.stakingContract.methods.totalSupply().call()
    if (this._isMounted){
      this.setState({totalStaking:web3.utils.fromWei(totalStaking)},()=>console.log())
@@ -122,6 +127,7 @@ export default class Staking extends Component {
         normalBalance:'',
         allowance:'',
         totalStaking:'',
+        deadline:'',
         
 
         address:null,
