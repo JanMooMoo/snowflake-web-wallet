@@ -22,7 +22,7 @@ import LinkAddressCard from './components/linkAddressCard';
 
 const Identity = () => {
   const user = useContext(SnowflakeContext);
-  
+
 
   const {
     hasProvider,
@@ -47,31 +47,34 @@ const [isModalOpen, toggleModal] = useState(false);
                 </p>
               </Col>
             </Row>
-            
+
             <Row className="justify-content-center align-items-center pb-4">
+            <Col xs="6">
+            <div className="identity-test">
+              <p className="identity__hydro-id">
+                Hydro ID:
+                {' '}
+                {hydroId}
+              </p>
+              <p className="identity__ein">
+                EIN:
+                {' '}
+                {ein}
+              </p>
+              <p className="identity__linked-wallets">
+                {`Linked Wallet(s): ${associatedAddresses.length}`}
+              </p>
+              </div>
+            </Col>
               <Col xs="6">
                 <p className="identity__user-image">
                   {ein !== null && (
                     <Identicon seed={ein} />
                   )}
                 </p>
-                
+
               </Col>
-              <Col xs="6">
-                <p className="identity__hydro-id">
-                  Hydro ID:
-                  {' '}
-                  {hydroId}
-                </p>
-                <p className="identity__ein">
-                  EIN:
-                  {' '}
-                  {ein}
-                </p>
-                <p className="identity__linked-wallets">
-                  {`Linked Wallet(s): ${associatedAddresses.length}`}
-                </p>
-              </Col>
+
               <Col className="linked-address-col">
               {associatedAddresses.map(address => (
                 <LinkedAddress
@@ -105,7 +108,7 @@ const [isModalOpen, toggleModal] = useState(false);
           <LinkAddressCard />
         </Col>
       </Row>
-      
+
 
     </div>
   );

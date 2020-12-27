@@ -68,7 +68,7 @@
 
 body {
   font-family: 'Open Sans';
-  background: #02103b!important;
+  background: #222222!important;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -171,12 +171,12 @@ h4 {
 }
 
 .modal-content h1 {
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 52px;
 }
 
 .modal-content p {
-  font-family: "Nunito-SemiBold", sans-serif;
+  font-family: "Roboto-SemiBold", sans-serif;
   font-size: 17px;
 }
 
@@ -221,14 +221,17 @@ h4 {
 }
 
 .onboarding__modal {
-background-color: #373737;
+  background-color: #373737;
 
-}	
-
+}
 
 .hydroId_valid {
 }
 
+@media (min-width: 992px) {}
+.modal-lg, .modal-xl {
+    max-width: auto;
+}
 
 @media (min-width: 992px) {}
 	.modal-lg, .modal-xl {
@@ -410,9 +413,6 @@ background-color: #373737;
     margin-bottom: 30px;
   }
 
-  .row {
-    margin: 0 !important;
-  }
 }
 
 

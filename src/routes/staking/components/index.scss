@@ -13,8 +13,8 @@
     margin-left:-10px;
     margin-top:-2px;
   }
-  
-  
+
+
   .FormGroup_border__1leMw {
     transition: border-color .2s;
     border-radius: 5px;
@@ -22,34 +22,34 @@
     padding: 10px 20px;
     position: relative;
   }
-  
+
   .FormGroup_header__3pzEu {
     color: #6d738c;
     font-size: 12px;
     margin-bottom: 10px;
   }
-  
+
   .FormGroup_header__3pzEu, .FormGroup_select__eLUVF>button, .FormGroup_wrapper__2JKVL {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .FormGroup_wrapper__2JKVL {
     font-size: 16px;
     font-weight: 500;
     line-height: 2;
   }
-  
+
   .FormGroup_component__1Xdv1 input, .FormGroup_component__1Xdv1 textarea {
     width: 100%;
-    
+
   }
-  
+
   .FormGroup_unit__3Lev9{
     cursor:pointer;
   }
-  
+
   input, select, textarea {
     border: 0;
     padding: 0;
@@ -58,35 +58,35 @@
     color: inherit;
     font: inherit;
   }
-  
-  
+
+
   .tooltips {
     position: relative;
     display: inline-block;
     color:rgb(148, 156, 189);
   }
-  
+
 
   .tooltips .tooltiptexts {
     visibility: hidden;
     width: 250px;
-    background-color: #00396e;
+    background-color: #555555;
     color: #fff;
     text-align: center;
     padding: 5px 0px;
     border-radius: 6px;
     font-size: 15px;
-    
+
     position: absolute;
     z-index: 1;
   }
-  
+
   .tooltiptexts p{
     font-size: 12px;
     margin:0px 5px;
   }
-  
- 
+
+
   .tooltips:hover .tooltiptexts {
     visibility: visible;
   }
@@ -96,40 +96,39 @@
     font-size: 5px;
     visibility: hidden;
   }
-  
+
   .insufficient-funds {
     color: #790a0a;
     font-size: 12px;
     margin-top:-11px;
   }
-  
+
   .Card_main_cap {
     padding: 20px 25px;
     height: 100%;;
-    color:#dfbc7c;
-    background:linear-gradient(40deg,#010d18,#061957,#043869);
+    color:#fff;
+    background:#171717;
     border-radius:10px;
     transition: all .2s ease-in-out;
-    box-shadow: -2px 3px 0px 0px #000000;
-    text-shadow:1px 2px 0 black,  
+    text-shadow:1px 2px 0 black,
      1px 1px 0 #000,
      1px 1px 0 #000,
      1px 1px 0 #000,
-     2px 1px 0 #000;  
+     2px 1px 0 #000;
      font-weight:100;
   }
-  
+
   .Card_main_cap h2 {
     margin-bottom:5px;
     font-weight:400;
-    text-shadow:1px 2px 0 black,  
+    text-shadow:1px 2px 0 black,
      1px 1px 0 #000,
      1px 1px 0 #000,
      1px 1px 0 #000,
-     2px 1px 0 #000;  
-     
+     2px 1px 0 #000;
+
   }
-  
+
   .Card_main_cap p {
     margin:none;
     color:#d3af6b;
@@ -139,14 +138,14 @@
     border-radius:10px;
     transition: all .2s ease-in-out;
     cursor:pointer;
-    text-shadow:1px 2px 0 black,  
+    text-shadow:1px 2px 0 black,
      1px 1px 0 #000,
      1px 1px 0 #000,
      1px 1px 0 #000,
-     2px 1px 0 #000;  
+     2px 1px 0 #000;
   }
-  
-  
+
+
   hr {
     box-sizing: content-box;
     height: 0;
@@ -157,6 +156,5 @@
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px 0 #022647;
-  
-  }
 
+  }

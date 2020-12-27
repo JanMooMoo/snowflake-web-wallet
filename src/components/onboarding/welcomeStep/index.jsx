@@ -30,7 +30,7 @@ function WelcomeStep(props) {
       <Row className="justify-content-center py-3">
         <Col xs="12" sm="8" className="text-center">
           <p className="text-white">
-            Create your Snowflake or <span className="underline">Ethereum Identification Number (EIN)</span>. This can be used across our dAppstore to interact with the decentralized apps and other blockchains. You can think of it like an ID card or drivers license. Snowflake will be linked to your Ethereum wallet address.
+            Create your Snowflake or <span className="underline">Ethereum Identification Number (EIN)</span>. This can be used across our wallets & dAppstore to interact with the decentralized apps and other blockchains. You can think of it like an ID card or drivers license. Snowflake will be linked to your Ethereum wallet address.
           </p>
         </Col>
       </Row>

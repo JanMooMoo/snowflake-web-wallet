@@ -18,7 +18,7 @@ import {
   useWeb3Context,
 } from 'web3-react';
 
-import hydro_blue_drop from './hydro_blue_drop.png' 
+import hydro_blue_drop from './hydro_blue_drop.png'
 import SnowflakeContext from '../../../contexts/snowflakeContext';
 
 
@@ -43,7 +43,7 @@ function Stake(props) {
 
   const [usdBalance, setUsdBalance] = useState('0');
   const [amountToStake, setAmountToStake] = useState('');
-  
+
 
   const web3 = useWeb3Context();
   const snowflakeContext = useContext(SnowflakeContext);
@@ -64,7 +64,7 @@ function Stake(props) {
 
     getUsdPrice();
   }, [snowflakeBalance]);
- 
+
 
   let allowed = 'sufficient-funds';
 
@@ -84,7 +84,7 @@ function Stake(props) {
   }
 
   let approved = false;
-  
+
   if(formatAmount(fromWei(props.allowance)) >= parseInt(222222)){
     approved = true;
     if(formatAmount(fromWei(props.allowance)) < parseInt(amountToStake) ){
@@ -112,18 +112,18 @@ function Stake(props) {
         <p className="mt-1">4. Staking rewards is claimable anytime & without lock-up period</p>
         </span>
         </div>
-       
-        
+
+
         </Col>
-     
+
         <p className="buy__test-tokens mb-0 col-sm-10 mt-1">
           Hydro Balance
-        </p>  
-        
-          
+        </p>
+
+
       </Row>
 
-     
+
       <div class="FormGroup_group__1Nj2I FormGroup_component__1Xdv1 py-4">
         <div class="FormGroup_border__1leMw">
           <header class="FormGroup_header__3pzEu">
@@ -143,7 +143,7 @@ function Stake(props) {
                 {approved?<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>:<div class="FormGroup_unit__3Lev9" onClick={e => setAmountToStake(formatAmount(fromWei(props.normalBalance)))}>Max</div>}
                 </div>
               </div>
-              
+
               </div>
             </div>
        <div className={allowed}><strong>Request approval to spend Hydro Token before staking</strong></div>
@@ -166,7 +166,7 @@ function Stake(props) {
             disabled={false}
             method={()=>props.hydroContract.methods.approve(props.staking_address,toWei('1100000000000000000000000000000'))}         
           />}
-          
+
         </Col>
       </Row>
     </Card>

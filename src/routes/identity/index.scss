@@ -1,7 +1,7 @@
 /* @define identity */
 
 .identity {
-  background-color: #010d30 !important;
+  background-color: #171717 !important;
   border: none;
   color: #fff;
   position: relative;
@@ -47,10 +47,15 @@
 .identity__user-image {
   margin: 0;
   text-align: center;
+  display: none!important;
+}
+
+.identity-test{
+  padding-left: 1.4rem;
 }
 
 .identity__link {
-  color: #2cbffe;
+  color: #555555;
   font-size: 4rem;
 }
 
@@ -60,4 +65,17 @@
 
 .linked-address-col{
   padding-top: 10px;
+}
+
+@media(max-width:600px){
+
+  .identity{
+      margin-bottom: 8rem;
+  }
+
+  .link{
+    height: 400px!important;
+    padding-left: 0 !important;
+  }
+
 }
