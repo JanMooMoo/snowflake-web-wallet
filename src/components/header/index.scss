@@ -40,7 +40,6 @@
 }
 
 .navbar-light .navbar-toggler {
-  margin-right: 30px;
   margin-top: -12px;
 }
 
@@ -72,5 +71,23 @@
 
 .headerAccount{
   display: none!important;
+}
+
+.navbar-light .navbar-toggler {
+  margin-top: -12px;
+  margin-left: 7rem;
+}
+
+.ml-auto, .mx-auto {
+    background: #171717 !important;
+    margin: 10px;
+    height: 100%;
+
+
+}
+
+a, h2, .nav-link{
+  display: flex;
+  justify-content: center;
 }
 }
