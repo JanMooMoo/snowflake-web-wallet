@@ -221,18 +221,19 @@ h4 {
 }
 
 .onboarding__modal {
-  background-color: #276ef1;
-}
+background-color: #373737;
+
+}	
+
 
 .hydroId_valid {
-  color: #fff;
 }
+
 
 @media (min-width: 992px) {}
-.modal-lg, .modal-xl {
-    max-width: 1200px;
-}
-
+	.modal-lg, .modal-xl {
+        max-width: auto;
+}	
 /**
  * Buttons
  */
