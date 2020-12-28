@@ -92,6 +92,8 @@ function Stake(props) {
     }
   }
 
+  
+
 
   return (
     <Card className="buy">

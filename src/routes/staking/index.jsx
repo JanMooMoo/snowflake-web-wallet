@@ -89,7 +89,7 @@ export default class Staking extends Component {
 
    const deadline = await this.state.stakingContract.methods.canWithdrawAt(this.state.account).call()
     if (this._isMounted){
-      this.setState({deadline:deadline},()=>console.log("deadline",this.state.deadline))
+      this.setState({deadline:new Date(parseInt(1616886805,10)*1000)},()=>console.log())
    }
 
    const totalStaking= await this.state.stakingContract.methods.totalSupply().call()
@@ -127,7 +127,7 @@ export default class Staking extends Component {
         normalBalance:'',
         allowance:'',
         totalStaking:'',
-        deadline:'',
+        deadline:0,
         
 
         address:null,
@@ -177,7 +177,11 @@ render(){
       
       <Row className="identity__row fadeit mt-5">
       <Col sm="12" md="12" lg="12" xl="12">
-      <Unstake duration={this.state.duration} account={this.state.account} contract={this.state.stakingContract} stakingBalance={this.state.stakingBalance}/>  
+      <Unstake duration={this.state.duration} 
+      account={this.state.account} 
+      contract={this.state.stakingContract} 
+      stakingBalance={this.state.stakingBalance}
+      deadline={this.state.deadline}/>  
 
         </Col>
       </Row>

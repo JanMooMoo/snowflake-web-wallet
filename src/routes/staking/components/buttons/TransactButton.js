@@ -80,7 +80,7 @@ function TransactButton({
           variant="contained"
           onClick={sendTransaction}
           disabled={disabled}
-        className="txButton">
+          className="txButton">
           {readyText}
         </Button>
       );

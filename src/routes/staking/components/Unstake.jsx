@@ -32,6 +32,7 @@ import React, {
     formatAmount,
   } from '../../../services/format';
   import TransactButton from './buttons/TransactButton';
+  import Deadline from './Deadline';
 
   var numeral = require('numeral');
 
@@ -60,9 +61,9 @@ import React, {
     }, [snowflakeBalance]);
 
 
-    let funds = 'sufficient-funds'
+    let funds = 'sufficient-funds pt-2'
     if(parseInt(props.stakingBalance) < parseInt(amountToUnstake) ){
-      funds = 'insufficient-funds'
+      funds = 'insufficient-funds pt-2'
     }
 
     return (
@@ -113,10 +114,11 @@ import React, {
 
                 </div>
               </div>
+           <Deadline deadline={props.deadline}/>
+          <div className={funds}><strong>Insufficient Stake Balance</strong></div>
+         
 
-          <section className={funds}><strong>Insufficient Stake Balance</strong></section>
-
-        <Row className="justify-content-center mt-3">
+        <Row className="justify-content-center mt-2">
           <Col className="text-center">
           <TransactButton
             readyText='Unstake'
