@@ -89,7 +89,7 @@ export default class Staking extends Component {
 
    const deadline = await this.state.stakingContract.methods.canWithdrawAt(this.state.account).call()
     if (this._isMounted){
-      this.setState({deadline:new Date(parseInt(1616886805,10)*1000)},()=>console.log())
+      this.setState({deadline:new Date(parseInt(deadline,10)*1000)},()=>console.log())
    }
 
    const totalStaking= await this.state.stakingContract.methods.totalSupply().call()
